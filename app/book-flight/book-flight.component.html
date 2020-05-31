@@ -1,0 +1,74 @@
+  
+  <div class="card-body" id="dd">
+    <strong><hr></strong>    
+    <h3 class="card-header" id="six">ADD PASSENGER DETAILS</h3>
+
+    
+      <br><br>
+      <form [formGroup]="form" (submit) = "addPassenger()" >
+        
+        <div class="form-row">
+
+          <div class="form-column">
+
+            <div class="form-row">
+              <div class="form-group col-5">
+                  <label>Name</label>
+                  <input type="text" formControlName="name"  class="form-control" placeholder="Enter name" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-5">
+                  <label>Age</label>
+                  <input type="text" formControlName="age"  class="form-control" placeholder="Enter Age" />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col-5">
+                  <label>ID</label>
+                  <input type="text" formControlName="id"  class="form-control" placeholder="Enter ID" />
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-column">
+            <button type="submit" class="btn btn-dark" >Add Passenger</button>
+            <br><br>
+            <button (click) = "doneBooking()" class="btn btn-dark">Proceed to Payment</button>
+          </div>
+
+        </div>
+      
+      </form>
+      
+
+      <hr>
+      <span *ngIf = "show; then con01"></span>
+      <ng-template #con01>
+      
+      <div class="container" id = "five">
+      <h3 class="card-header" id="six">PASSENGER DETAILS</h3>
+      <table>
+    
+        <thead>
+          <tr>
+            <td>#</td>
+            <td>NAME</td>
+            <td>UID</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor = "let i of passengerList; let j = index ">
+            <td>{{j+1}}</td>
+            <td>{{i.name}}</td>
+            <td>{{i.uin}}</td>
+            <td><button class="btn btn-primary-dark" type="submit" >DELETE</button></td>
+          </tr>
+        </tbody>
+    
+      </table>
+    </div>
+    </ng-template>
+  </div>
+<!-- </ng-template> -->
